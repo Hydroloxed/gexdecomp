@@ -2,11 +2,14 @@
 #include "unimplemented.h"
 #include <stdlib.h>
 
-// 0040b390
+// 0040b390 https://decomp.me/scratch/9sSYN 100%
 void* BLOC_ResolvePtr(void** blktbl, void* ptr)
 {
-    UNIMPLEMENTED;
-    return NULL;
+    unsigned int offset = ((unsigned int)ptr) & 0xffffe;
+    unsigned int blockndx = (((unsigned int)ptr) & 0x7ff00000) >> 0x14;
+    void* blockaddr = blktbl[blockndx];
+
+    return (char*)blockaddr + offset;
 }
 
 // 0040b3b0
