@@ -5,6 +5,8 @@ target_link_libraries(gex PRIVATE common)
 target_sources(gex PRIVATE
     bloc.c
     bloc.h
+    collect.c
+    collect.h
     listapi.c
     listapi.h
     mem.c
