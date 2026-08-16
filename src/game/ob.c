@@ -1,11 +1,41 @@
 #include "ob.h"
+#include "listapi.h"
+#include "mem.h"
 #include "unimplemented.h"
 #include <stdlib.h>
 
-// 004194c0
+// 004a27a0 4
+static void* gObjectsMem;
+
+// 004a27a4 4
+static int32 sNumObjects;
+
+// 004a27b0 c
+static struct ListType sFreeObjectsList;
+
+// 004a28a0 78
+struct ListType gObjectLists[10];
+
+// 004194c0 https://decomp.me/scratch/RtfUe 100% (Something weird with disassembler but fully matching)
 void GOB_InitObjects()
 {
-    UNIMPLEMENTED;
+    int i;
+    struct GXObject* ob;
+    struct ListType* lst;
+
+    LST_Init(&sFreeObjectsList);
+
+    #define MAX_OBS 100
+    gObjectsMem = ob = MEM_Alloc(MAX_OBS * sizeof(GXObject));
+    i = MAX_OBS;
+    for(i = MAX_OBS; --i > -1; ob++)
+    {
+        LST_AddTail(&sFreeObjectsList, &ob->gob_node);
+    }
+    for(lst = gObjectLists; lst < gObjectLists + 10; lst++)
+    {
+        LST_Init(lst);
+    }
 }
 
 // 00419520
