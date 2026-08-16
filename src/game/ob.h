@@ -220,7 +220,7 @@ typedef struct GXObject
 	// 204
 } GXObject;
 
-struct ListType gObjectLists[10];
+extern struct ListType gObjectLists[10];
 
 void GOB_InitObjects();
 void GOB_RemoveObject(struct GXObject* gob);
