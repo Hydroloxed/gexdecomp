@@ -9,4 +9,6 @@ target_sources(gex PRIVATE
     listapi.h
     mem.c
     mem.h
+    ob.c
+    ob.h
 )
