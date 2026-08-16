@@ -15,4 +15,6 @@ target_sources(gex PRIVATE
     mem.h
     ob.c
     ob.h
+    points.c
+    points.h
 )
