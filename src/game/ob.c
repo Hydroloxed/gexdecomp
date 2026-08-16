@@ -129,10 +129,10 @@ void SND_PlaySound2(struct GXObject* gob, int sndid, int vol)
     SND_PlaySound1(gob, sndid, vol >> 1, 64);
 }
 
-// 0041a340
+// 0041a340 https://decomp.me/scratch/Kh93q 100%
 void SND_PlaySound3(struct GXObject* gob, int sndid)
 {
-    UNIMPLEMENTED;
+    SND_PlaySound1(gob, sndid, 96, 64);
 }
 
 // 0041a360
