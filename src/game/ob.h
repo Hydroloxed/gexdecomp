@@ -27,7 +27,7 @@ void GOB_DisplayObjectAtPos(struct GXObject* gob, int frameidx, int framegrp, in
 int GOB_LandedOnContoursExactly(struct GXObject* gob);
 int GOB_LandedOnContours(struct GXObject* gob, int maxydist);
 int GOB_LandedOnContoursWithOffset(struct GXObject* gob, int maxydist);
-void SND_PlaySound1(struct GXObject* gob, int sndid, int vol);
+void SND_PlaySound1(struct GXObject* gob, int sndid, int vol, int dunno);
 void SND_PlaySound2(struct GXObject* gob, int sndid, int vol);
 void SND_PlaySound3(struct GXObject* gob, int sndid);
 void SND_PlaySound4(int sndid, int vol);

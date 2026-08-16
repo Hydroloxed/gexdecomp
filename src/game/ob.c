@@ -118,15 +118,15 @@ int GOB_LandedOnContoursWithOffset(struct GXObject* gob, int maxydist)
 }
 
 // 0041a250
-void SND_PlaySound1(struct GXObject* gob, int sndid, int vol)
+void SND_PlaySound1(struct GXObject* gob, int sndid, int vol, int dunno)
 {
     UNIMPLEMENTED;
 }
 
-// 0041a320
+// 0041a320 https://decomp.me/scratch/BHS04 100%
 void SND_PlaySound2(struct GXObject* gob, int sndid, int vol)
 {
-    UNIMPLEMENTED;
+    SND_PlaySound1(gob, sndid, vol >> 1, 64);
 }
 
 // 0041a340
