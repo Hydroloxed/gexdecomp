@@ -23,4 +23,5 @@ target_sources(gex PRIVATE
     paused.h
     points.c
     points.h
+    vsit.c
 )
