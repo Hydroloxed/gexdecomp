@@ -13,6 +13,8 @@ target_sources(gex PRIVATE
     collect.h
     gxinppad.c
     gxinppad.h
+    idl.c
+    idl.h
     listapi.c
     listapi.h
     m1level.c
