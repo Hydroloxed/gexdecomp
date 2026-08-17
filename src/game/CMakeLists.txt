@@ -23,6 +23,8 @@ target_sources(gex PRIVATE
     mem.h
     ob.c
     ob.h
+    par.c
+    par.h
     paused.c
     paused.h
     points.c
