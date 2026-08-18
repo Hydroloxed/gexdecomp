@@ -222,6 +222,8 @@ typedef struct GXObject
 
 extern struct ListType gObjectLists[10];
 
+struct GXLoadObject* GOB_ResolveLoadObject(void** blktbl, void* ptr);
+
 void GOB_InitObjects();
 void GOB_RemoveObject(struct GXObject* gob);
 struct GXObject* GOB_AddObject(int type, int x, int y, struct GXLoadObject* glob);
