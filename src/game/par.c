@@ -1,4 +1,6 @@
 #include "par.h"
+#include "bloc.h"
+#include "ob.h"
 #include "unimplemented.h"
 #include <stddef.h>
 
@@ -26,11 +28,28 @@ void PAR_DrawParallax(struct Parallax* par, int32 x, int32 y)
     UNIMPLEMENTED;
 }
 
-// 00420190
+// 00420190 https://decomp.me/scratch/gxAbk 100%
 struct Parallax* PAR_ResolveParallax(void** blktbl, void* pardat)
 {
-    UNIMPLEMENTED;
-    return NULL;
+    struct Parallax* par;
+    struct ParaStrip** prs;
+    struct ParaObject** parob;
+
+    par = BLOC_ResolvePtr(blktbl, pardat);
+    prs = par->par_strips;
+    while(*prs)
+    {
+        *prs = BLOC_ResolvePtr(blktbl, *prs);
+        parob = (*prs)->prs_objects;
+        while(*parob)
+        {
+            *parob = BLOC_ResolvePtr(blktbl, *parob);
+            (*parob)->gdo_objectLoadData = GOB_ResolveLoadObject(blktbl, (*parob)->gdo_objectLoadData);
+            parob++;
+        }
+        prs++;
+    }
+    return par;
 }
 
 // 00420210
