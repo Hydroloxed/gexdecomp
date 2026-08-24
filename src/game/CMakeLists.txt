@@ -19,7 +19,6 @@ target_sources(gex PRIVATE
     listapi.h
     m1level.c
     m1level.h
-    mem.c
     mem.h
     ob.c
     ob.h
@@ -30,4 +29,6 @@ target_sources(gex PRIVATE
     points.c
     points.h
     vsit.c
+    winmain.c
+    winmain.h
 )
