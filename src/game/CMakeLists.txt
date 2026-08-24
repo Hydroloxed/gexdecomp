@@ -19,6 +19,8 @@ target_sources(gex PRIVATE
     listapi.h
     m1level.c
     m1level.h
+    m1main.c
+    m1main.h
     mem.h
     ob.c
     ob.h
