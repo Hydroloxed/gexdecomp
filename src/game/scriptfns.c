@@ -1,4 +1,5 @@
 #include "scriptfns.h"
+#include "ob.h"
 #include "platform.h"
 #include "unimplemented.h"
 #include <stddef.h>
@@ -26,11 +27,21 @@ static uint8* SCRIPT_CheckTileAtPos(uint8* data, struct GXObject* gob)
     return NULL;
 }
 
-// 00417fc0
+// 00417fc0 https://decomp.me/scratch/73Foy 100%
 static uint8* SCRIPT_MoveToHotSpot(uint8* data, struct GXObject* gob)
 {
-    UNIMPLEMENTED;
-    return NULL;
+    int32 x, y;
+    uint32 hottable;
+    uint32 hotspot;
+
+    hottable = *data++;
+    hotspot = *data++;
+    if(GOB_GetHotSpot(gob, hottable, hotspot, &x, &y) != 0)
+    {
+        gob->gob_last_x = gob->gob_xpos += x;
+        gob->gob_last_y = gob->gob_ypos += y;
+    }
+    return data;
 }
 
 // 00418020
