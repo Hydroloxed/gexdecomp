@@ -1,7 +1,6 @@
 add_library(common)
 
 target_sources(common PRIVATE
-    fake_main.c
     platform.h
     unimplemented.c
     unimplemented.h

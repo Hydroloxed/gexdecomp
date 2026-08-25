@@ -47,4 +47,7 @@ target_sources(gex PRIVATE
     vsit.c
     winmain.c
     winmain.h
+
+    # Temporary: Until WinMain() (and GameThread) is implemented
+    fake_main.c
 )
