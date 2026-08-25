@@ -40,6 +40,8 @@ target_sources(gex PRIVATE
     player.h
     points.c
     points.h
+    scriptfns.c
+    scriptfns.h
     vsit.c
     winmain.c
     winmain.h
