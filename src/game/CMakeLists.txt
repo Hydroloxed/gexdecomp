@@ -27,6 +27,8 @@ target_sources(gex PRIVATE
     m1level.h
     m1main.c
     m1main.h
+    map.c
+    map.h
     mem.h
     menu.c
     menu.h
