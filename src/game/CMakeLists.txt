@@ -28,6 +28,8 @@ target_sources(gex PRIVATE
     menu.h
     ob.c
     ob.h
+    obi.c
+    obi.h
     par.c
     par.h
     paused.c
