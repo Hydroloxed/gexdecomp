@@ -11,11 +11,12 @@ static uint32 SCRIPT_GetUInt(uint8** data)
     return value;
 }
 
-// 00417f40
-static uint32 SCRIPT_GetUInt16(uint8** param_1)
+// 00417f40 https://decomp.me/scratch/Ra7l3 100%
+static uint32 SCRIPT_GetUInt16(uint8** data)
 {
-    UNIMPLEMENTED;
-    return 0;
+    uint32 value = (*data)[1] << 8 | (*data)[0];
+    *data += 2;
+    return value;
 }
 
 // 00417f60
