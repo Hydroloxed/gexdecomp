@@ -223,6 +223,12 @@ typedef struct GXObject
 extern struct ListType gObjectLists[10];
 
 struct GXLoadObject* GOB_ResolveLoadObject(void** blktbl, void* ptr);
+void GOB_CleanUpLoadObject(struct GXLoadObject* glob);
+void GOB_DoIt(struct ListType* gobs);
+void GOB_DrawList(struct ListType* gobs);
+void GOB_PhysicsStepX(struct GXObject* gob);
+void GOB_PhysicsStepY(struct GXObject* gob);
+void GOB_CallInit(struct GXObject* gob, BOOL removed);
 
 void GOB_InitObjects();
 void GOB_RemoveObject(struct GXObject* gob);

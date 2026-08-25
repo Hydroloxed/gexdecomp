@@ -23,6 +23,42 @@ struct GXLoadObject* GOB_ResolveLoadObject(void** blktbl, void* ptr)
     return NULL;
 }
 
+// 0040eea0
+void GOB_CleanUpLoadObject(struct GXLoadObject* glob)
+{
+    UNIMPLEMENTED;
+}
+
+// 0040ef40
+void GOB_DoIt(struct ListType* gobs)
+{
+    UNIMPLEMENTED;
+}
+
+// 0040efa0
+void GOB_DrawList(struct ListType* gobs)
+{
+    UNIMPLEMENTED;
+}
+
+// 0040f260
+void GOB_PhysicsStepX(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 0040f2a0
+void GOB_PhysicsStepY(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 0040f2e0
+void GOB_CallInit(struct GXObject* gob, BOOL removed)
+{
+    UNIMPLEMENTED;
+}
+
 // 004194c0 https://decomp.me/scratch/RtfUe 100% (Something weird with disassembler but fully matching)
 void GOB_InitObjects()
 {
