@@ -36,6 +36,8 @@ target_sources(gex PRIVATE
     par.h
     paused.c
     paused.h
+    player.c
+    player.h
     points.c
     points.h
     vsit.c
