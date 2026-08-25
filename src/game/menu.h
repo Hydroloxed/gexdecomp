@@ -1,0 +1,54 @@
+#include "platform.h"
+#include <stddef.h>
+
+struct CollideInfo;
+struct GXObject;
+
+void MenuSaveRemaps(void);
+void MenuRestoreRemaps(void);
+void ob109Init(struct GXObject* gob, BOOL removed);
+void ob109DoIt(struct GXObject* gob);
+void ob109Draw(struct GXObject* gob);
+void ob110Init(struct GXObject* gob, BOOL removed);
+void ob110DoIt(struct GXObject* gob);
+void ob110Draw(struct GXObject* gob);
+void PrintWithFont(/*undefined4 x, undefined4 y, int param_3, int param_4, GXObType_fake param_5, int param_6, char * param_7, GXObject * param_8*/);
+struct GXObject* GOB_FindWithWork0(int32 gobtype, int32 work0);
+void ob122Init(struct GXObject* gob, BOOL removed);
+void ob122DoIt(struct GXObject* gob);
+void ob122Draw(struct GXObject* gob);
+void MainMenuButtonInit(struct GXObject* gob, BOOL removed);
+void MainMenuButtonDoIt(struct GXObject* gob);
+void MainMenuButtonDraw(struct GXObject* gob);
+void OptionsMenuControllerInit(struct GXObject* gob, BOOL removed);
+void OptionsMenuControllerDoIt(struct GXObject* gob);
+void FUN_0040c940(void);
+void FUN_0040ca70(struct GXObject* param_1, int param_2);
+void FUN_0040cb70(struct GXObject* param_1, const char* param_2);
+void FUN_0040cca0(struct GXObject* param_1);
+void OptionsMenuControlerDraw(struct GXObject* gob);
+void ob256Init(struct GXObject* gob, BOOL removed);
+void ob256DoIt(struct GXObject* gob);
+void FUN_0040d3f0(int32 work0, int32 param_2);
+void ob256Draw(struct GXObject* gob);
+void ob329Init(struct GXObject* gob, BOOL removed);
+void ob329DoIt(struct GXObject* gob);
+void ob329Draw(struct GXObject* gob);
+void HelpBoxNew(int param_1, int y, int x, int param_4);
+void HelpBoxInit(struct GXObject* gob, BOOL removed);
+void HelpBoxComputeExtents(struct GXObject* param_1);
+char* HelpBoxGetLine(char* param_1, int32* param_2);
+void HelpBoxDoIt(struct GXObject* gob);
+void HelpBoxClid(struct GXObject* gob, struct CollideInfo* ci);
+void HelpBoxDraw(struct GXObject* gob);
+void MainMenuControllerInit(struct GXObject* gob, BOOL removed);
+void MainMenuControllerDoIt(struct GXObject* gob);
+void MainMenuControllerDraw(struct GXObject* gob);
+void ob91FUN_0040e2f0(struct GXObject* param_1);
+void ob91FUN_0040e3f0(struct GXObject* param_1);
+void FUN_0040e520(void);
+void ob278Init(struct GXObject* gob, BOOL removed);
+void ob278DoIt(struct GXObject* gob);
+void ob278Draw(struct GXObject* gob);
+void PasswordMenuDraw(struct GXObject* gob);
+void PasswordKeyHintsDraw(struct GXObject* gob);
