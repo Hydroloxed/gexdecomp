@@ -7,6 +7,8 @@ target_sources(gex PRIVATE
     bloc.h
     breakabl.c
     breakabl.h
+    camera.c
+    camera.h
     cld.c
     cld.h
     collect.c
