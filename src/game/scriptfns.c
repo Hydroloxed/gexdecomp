@@ -3,11 +3,12 @@
 #include "unimplemented.h"
 #include <stddef.h>
 
-// 00417f00
+// 00417f00 https://decomp.me/scratch/sRyCV 100%
 static uint32 SCRIPT_GetUInt(uint8** data)
 {
-    UNIMPLEMENTED;
-    return 0;
+    uint32 value = (*data)[3] << 24 | (*data)[2] << 16 | (*data)[1] << 8 | (*data)[0];
+    *data = *data + 4;
+    return value;
 }
 
 // 00417f40
