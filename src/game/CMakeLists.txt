@@ -19,6 +19,8 @@ target_sources(gex PRIVATE
     idl.h
     input.c
     input.h
+    levselct.c
+    levselct.h
     listapi.c
     listapi.h
     m1level.c
