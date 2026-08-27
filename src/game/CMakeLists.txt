@@ -48,6 +48,8 @@ target_sources(gex PRIVATE
     points.h
     scriptfns.c
     scriptfns.h
+    tiles.c
+    tiles.h
     utils.c
     utils.h
     vsit.c
