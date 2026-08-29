@@ -130,5 +130,6 @@ void CollectibleInit(struct GXObject* gob, BOOL removed);
 void CollectibleDoIt(struct GXObject* gob);
 void CollectibleDraw(struct GXObject* gob);
 void CollectibleClid(struct GXObject* gob, struct CollideInfo* ci);
+uint8* GOB_RunScript(struct GXObject* gob, struct GXAniScript* script, uint8* bytecode);
 
 #endif

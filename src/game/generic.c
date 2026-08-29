@@ -765,3 +765,16 @@ void CollectibleClid(struct GXObject* gob, struct CollideInfo* ci)
 {
     UNIMPLEMENTED;
 }
+
+// 00435d90
+uint8* GOB_RunScript(struct GXObject* gob, struct GXAniScript* script, uint8* bytecode)
+{
+    UNIMPLEMENTED;
+    return NULL;
+}
+
+// 00436c90
+static void ExitWithScriptError(const char* msg)
+{
+    UNIMPLEMENTED;
+}
