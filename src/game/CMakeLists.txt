@@ -17,6 +17,8 @@ target_sources(gex PRIVATE
     collect.h
     generic.c
     generic.h
+    generic2.c
+    generic2.h
     gxinppad.c
     gxinppad.h
     idl.c
