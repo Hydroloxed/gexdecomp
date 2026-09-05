@@ -3,6 +3,8 @@ add_executable(gex)
 target_link_libraries(gex PRIVATE common)
 
 target_sources(gex PRIVATE
+    async.c
+    async.h
     bloc.c
     bloc.h
     breakabl.c
