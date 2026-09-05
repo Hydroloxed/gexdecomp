@@ -59,6 +59,8 @@ target_sources(gex PRIVATE
     utils.c
     utils.h
     vsit.c
+    windraw.c
+    windraw.h
     winmain.c
     winmain.h
 
