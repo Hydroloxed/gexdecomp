@@ -778,3 +778,109 @@ static void ExitWithScriptError(const char* msg)
 {
     UNIMPLEMENTED;
 }
+
+// 00436cb0
+static void DrawObject(struct GXObject* param_1)
+{
+    UNIMPLEMENTED;
+}
+
+// 00436cf0
+void RezDrawCommon(void)
+{
+    UNIMPLEMENTED;
+}
+
+// 00436d50
+void RezInDraw2(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00436ed0
+void RezInDraw(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437010
+void RezOutDraw2(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437170
+void RezOutDraw(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 004372f0
+void RezInObject(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437310
+void RezOutObject(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437330
+void RezOutAll(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 004373c0
+int32 FUN_004373c0(int32 param_1)
+{
+    UNIMPLEMENTED;
+    return 0;
+}
+
+// 004374a0
+void FUN_004374a0(int32* param_1, int32* param_2)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437500
+void FUN_00437500(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437790
+void FUN_00437790(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 004379d0
+void FUN_004379d0(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437b20
+void FUN_00437b20(struct GXObject* param_1, struct CollideInfo* param_2)
+{
+    UNIMPLEMENTED;
+}
+
+// 00437b70
+int32 KFTurtleHeadAttack(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+    return 0;
+}
+
+// 00437e50
+int32 FUN_00437e50(int32 param_1, uint32 param_2)
+{
+    UNIMPLEMENTED;
+    return 0;
+}
+

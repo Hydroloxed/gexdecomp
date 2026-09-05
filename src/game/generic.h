@@ -131,5 +131,21 @@ void CollectibleDoIt(struct GXObject* gob);
 void CollectibleDraw(struct GXObject* gob);
 void CollectibleClid(struct GXObject* gob, struct CollideInfo* ci);
 uint8* GOB_RunScript(struct GXObject* gob, struct GXAniScript* script, uint8* bytecode);
+void RezDrawCommon(void);
+void RezInDraw2(struct GXObject* gob);
+void RezInDraw(struct GXObject* gob);
+void RezOutDraw2(struct GXObject* gob);
+void RezOutDraw(struct GXObject* gob);
+void RezInObject(struct GXObject* gob);
+void RezOutObject(struct GXObject* gob);
+void RezOutAll(struct GXObject* gob);
+int32 FUN_004373c0(int32 param_1);
+void FUN_004374a0(int32* param_1, int32* param_2);
+void FUN_00437500(struct GXObject* gob);
+void FUN_00437790(struct GXObject* gob);
+void FUN_004379d0(struct GXObject* gob);
+void FUN_00437b20(struct GXObject* param_1, struct CollideInfo* param_2);
+int32 KFTurtleHeadAttack(struct GXObject* gob);
+int32 FUN_00437e50(int32 param_1, uint32 param_2);
 
 #endif
