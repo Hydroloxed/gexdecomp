@@ -141,6 +141,12 @@ void FUN_0042f5f0(struct GXObject* param_1, BOOL param_2)
     UNIMPLEMENTED;
 }
 
+// 0042f6e0
+void FUN_0042f6e0(struct GXObject* param_1)
+{
+    UNIMPLEMENTED;
+}
+
 // 0042f720
 void FUN_0042f720(struct GXObject* param_1)
 {
@@ -497,6 +503,12 @@ void FUN_00432f40(struct GXObject* param_1)
 
 // 00432fa0
 void FUN_00432fa0(struct GXObject* gob, struct CollideInfo* param_2)
+{
+    UNIMPLEMENTED;
+}
+
+// 00433070
+void FUN_00433070(struct GXObject* gob)
 {
     UNIMPLEMENTED;
 }

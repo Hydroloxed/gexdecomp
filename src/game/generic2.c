@@ -256,6 +256,12 @@ void FUN_00439390(int32* param_1, int32* param_2, int32* param_3, int32* param_4
     UNIMPLEMENTED;
 }
 
+// 00439460
+void FUN_00439460(struct GXObject* gob)
+{
+    UNIMPLEMENTED;
+}
+
 // 004394b0
 void FUN_004394b0(struct GXObject* gob)
 {
