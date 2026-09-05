@@ -449,7 +449,7 @@ void GameThread(void)
 }
 
 // 00405120
-int32 UpdateTimer(void)
+BOOL WaitForNextFrame(void)
 {
     UNIMPLEMENTED;
     return 0;
