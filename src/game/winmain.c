@@ -481,7 +481,7 @@ BOOL FUN_004052d0(void)
 }
 
 // 00405310
-BOOL FUN_00405310(void)
+BOOL ReallyExit(void)
 {
     UNIMPLEMENTED;
     return 0;
