@@ -140,6 +140,7 @@ void M1_RunGame(void)
 BOOL M1_Main(int param_1)
 {
     UNIMPLEMENTED;
+    M1_RunGame(); // temporary
     return 0;
 }
 
