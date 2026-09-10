@@ -4,7 +4,10 @@
 #include "unimplemented.h"
 
 // 0041ca10
-void CLD_InitCollides(void);
+void CLD_InitCollides(void)
+{
+    UNIMPLEMENTED;
+}
 
 // 0041ca70
 BOOL CLD_ComputeAngleEdgesWithFrame(struct FrameInfo* fi)
