@@ -1,6 +1,16 @@
 #include "m1main.h"
+#include "bloc.h"
+#include "cld.h"
+#include "mem.h"
+#include "ob.h"
 #include "platform.h"
+#include "player.h"
 #include "unimplemented.h"
+#include "windraw.h"
+#include "winmain.h"
+
+// 004a2968 4
+uint8* sM1PlaybackRecordingInfo;
 
 // 00409880
 void LoadGx(void)
@@ -130,10 +140,32 @@ void M1_RunGameLoop(void)
     UNIMPLEMENTED;
 }
 
-// 0040b000
+// 0040b000 https://decomp.me/scratch/tCP1z 100%
 void M1_RunGame(void)
 {
-    UNIMPLEMENTED;
+    struct FONTType font;
+
+    DRAW_Init();
+    MEM_Init();
+    SND_Init();
+    GFX_OpenGraphics(2);
+    GFX_Frame();
+    IDL_Open();
+    sM1PlaybackRecordingInfo = MEM_Alloc(0x3800);
+    GFX_ResetFade();
+    TXT_LoadFont(&font, gRootDir, 1);
+    GOB_InitObjects();
+    CLD_InitCollides();
+    BLOC_OpenBlockSupport();
+    InitPlayer();
+    M1_RunGameLoop();
+    FreeGx();
+    BLOC_CloseBlockSupport();
+    TXT_UnloadFont(&font);
+    CDIO_CloseFileSystem();
+    GFX_CloseGraphics();
+    SND_DeInit();
+    MEM_Deinit();
 }
 
 // 0040b0a0
