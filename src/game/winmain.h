@@ -106,7 +106,6 @@ void FUN_004054c0(int32 param_1, int32 param_2);
 void VRAM_Show(void);
 void VRAM_Hide(void);
 /*LRESULT*/ int32 FUN_00405850(/*HWND*/ void* param_1, uint32 param_2, /*HWND*/ void* param_3, /*LPARAM*/ int32 param_4);
-int WinMain(/*HINSTANCE*/ void* param_1, /*HINSTANCE*/ void* param_2, char* param_3, int param_4);
 void WinShowError(int param_1, const char* param_2);
 void WND_CleanUp(void);
 void GDI_Init(void);
