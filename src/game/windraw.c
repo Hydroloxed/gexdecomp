@@ -117,7 +117,7 @@ void GFX_Init(void)
 }
 
 // 0043f000
-void GFX_OpenGraphics(void)
+void GFX_OpenGraphics(uint32 param_1)
 {
     UNIMPLEMENTED;
 }

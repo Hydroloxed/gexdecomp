@@ -48,7 +48,7 @@ void DRAW_RemovePlutCache(uint16* plut);
 void DRAW_RemoveImageCache(struct CD_UIMAGE* param_1);
 void FUN_0043eed0(void);
 void GFX_Init(void);
-void GFX_OpenGraphics(void);
+void GFX_OpenGraphics(uint32 param_1);
 void GFX_CloseGraphics(void);
 void FUN_0043f070(void);
 void FUN_0043f080(uint32 param_1);
