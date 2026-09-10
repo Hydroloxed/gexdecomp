@@ -165,7 +165,7 @@ void GFX_DoFade(void)
 }
 
 // 0043f450
-void GFX_InitFade(void)
+void GFX_ResetFade(void)
 {
     UNIMPLEMENTED;
 }

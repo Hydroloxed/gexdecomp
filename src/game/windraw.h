@@ -40,7 +40,7 @@ void FlushAllRegions(void);
 void GFX_DoFlush(BOOL param_1);
 void GFX_Frame(void);
 void GFX_DoFade(void);
-void GFX_InitFade(void);
+void GFX_ResetFade(void);
 void GFX_Fade(int32 frames, int32 r1, int32 r2, int32 g1, int32 g2, int32 b1, int32 b2);
 void PAL_WaitForFade(void);
 void TXT_LoadFont(struct FONTType* font, struct CDirectory* dir, int fileidx);
