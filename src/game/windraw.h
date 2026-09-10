@@ -6,13 +6,29 @@
 struct CD_CEL;
 struct CD_UIMAGE;
 struct CDirectory;
-struct FONTType;
 struct GXObject;
 struct M1Tile;
 struct ParaObject;
 struct Rect;
 struct RM_Map;
 struct RM_Screen;
+
+typedef struct {
+	uint16 data[32];
+} FONTPLUT;
+
+typedef struct FONTType
+{
+	FONTPLUT* plut; // 00
+	void* cels; // 04 - should be CD_UIMAGE**
+	uint8 firstChar; // 08
+	uint8 lastChar;// 09
+	uint8 pad0; // 0A
+	uint8 pad1; // 0B
+	int32 charHeight; // 0C
+	int32 charXAdjust; // 10
+	// 14
+} FONTType;
 
 void DRAW_Init(void);
 void FUN_0043db50(void);
