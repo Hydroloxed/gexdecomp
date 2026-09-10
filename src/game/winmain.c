@@ -4,6 +4,9 @@
 #include "unimplemented.h"
 #include <stddef.h>
 
+struct CDirectory* gRootDir;
+struct CDirectory gRootDirX;
+
 // 00401000
 int32 DDRAW_GetDisplayMode(void)
 {

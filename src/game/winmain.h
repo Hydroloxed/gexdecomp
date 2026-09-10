@@ -3,7 +3,18 @@
 #include "platform.h"
 #include <stddef.h>
 
-struct CDirectory;
+struct CFileInfo;
+
+struct CDirectory
+{
+    // Windows-specific
+    uint32 numFiles;
+    struct CFileInfo* files;
+    void* fileHandle;
+};
+
+extern struct CDirectory* gRootDir;
+extern struct CDirectory gRootDirX;
 
 int32 DDRAW_GetDisplayMode(void);
 BOOL DDRAW_Create(void);
