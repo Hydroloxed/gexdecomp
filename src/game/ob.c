@@ -4,16 +4,16 @@
 #include "unimplemented.h"
 #include <stdlib.h>
 
-// 004a27a0 4
+// dat 004a27a0 4
 static void* gObjectsMem;
 
-// 004a27a4 4
+// dat 004a27a4 4
 static int32 sNumObjects;
 
-// 004a27b0 c
+// dat 004a27b0 c
 static struct ListType sFreeObjectsList;
 
-// 004a28a0 78
+// dat 004a28a0 78
 struct ListType gObjectLists[10];
 
 // 0040eb70

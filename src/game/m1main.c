@@ -9,7 +9,7 @@
 #include "windraw.h"
 #include "winmain.h"
 
-// 004a2968 4
+// dat 004a2968 4
 uint8* sM1PlaybackRecordingInfo;
 
 // 00409880
