@@ -3,6 +3,8 @@
 #include "platform.h"
 #include "unimplemented.h"
 #include <stddef.h>
+#include <stdlib.h>
+#include <windows.h>
 
 struct CDirectory* gRootDir;
 struct CDirectory gRootDirX;
@@ -554,7 +556,7 @@ void VRAM_Hide(void)
 }
 
 // 00405bf0
-int WinMain(/*HINSTANCE*/ void* param_1, /*HINSTANCE*/ void* param_2, char* param_3, int param_4)
+int WinMain(HINSTANCE param_1, HINSTANCE param_2, LPSTR param_3, int param_4)
 {
     UNIMPLEMENTED;
     return 0;
