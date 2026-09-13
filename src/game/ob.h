@@ -230,15 +230,15 @@ void GOB_PhysicsStepX(struct GXObject* gob);
 void GOB_PhysicsStepY(struct GXObject* gob);
 void GOB_CallInit(struct GXObject* gob, BOOL removed);
 
-void GOB_InitObjects();
+void GOB_InitObjects(void);
 void GOB_RemoveObject(struct GXObject* gob);
 struct GXObject* GOB_AddObject(int type, int x, int y, struct GXLoadObject* glob);
 struct GXObject* GOB_AddObjectByIndex(int type, int x, int y, int idx);
 void GOB_RemoveMapObject(struct GXObject* gob);
 void GOB_AddMapObject(struct ObjectIntro* oi, struct ObjectIntroTracker* oit);
 void GOB_Remove(struct GXObject* gob);
-void GOB_FreeAllObjects();
-void GOB_FreeRemovedObjects();
+void GOB_FreeAllObjects(void);
+void GOB_FreeRemovedObjects(void);
 void GOB_SetDisplayPriority(struct GXObject* gob, int prio);
 void GOB_PutObjectBehindObject(struct GXObject* newob, struct GXObject* oldob);
 void GOB_PutObjectInFrontOfObject(struct GXObject* newob, struct GXObject* oldob);

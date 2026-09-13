@@ -771,13 +771,13 @@ void MEM_Free(void* p)
 }
 
 // 004097a0
-void MEM_Init()
+void MEM_Init(void)
 {
     UNIMPLEMENTED;
 }
 
 // 004097b0
-void MEM_Deinit()
+void MEM_Deinit(void)
 {
     UNIMPLEMENTED;
 }

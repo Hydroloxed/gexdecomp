@@ -14,7 +14,7 @@ void PlayerTryBreakStuff(int32 x, int32 y)
 }
 
 // 0041b3b0
-void FUN_0041b3b0()
+void FUN_0041b3b0(void)
 {
     UNIMPLEMENTED;
 }

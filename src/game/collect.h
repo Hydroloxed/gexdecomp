@@ -6,11 +6,11 @@ struct CollideInfo;
 struct GXObject;
 
 int32 COL_GetRemoteStatus(int32 level);
-void COL_ClearStartDoor();
-void COL_ClearStartDoors();
+void COL_ClearStartDoor(void);
+void COL_ClearStartDoors(void);
 void COL_CollectAnItem(int32 coltype);
-void COL_ResetCollectibles();
-int32 COL_RemoveOldVcrs();
+void COL_ResetCollectibles(void);
+int32 COL_RemoveOldVcrs(void);
 
 void CameraInit(struct GXObject* gob, BOOL removed);
 void CameraDoIt(struct GXObject* gob);

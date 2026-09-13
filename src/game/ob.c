@@ -60,7 +60,7 @@ void GOB_CallInit(struct GXObject* gob, BOOL removed)
 }
 
 // 004194c0 https://decomp.me/scratch/RtfUe 100% (Something weird with disassembler but fully matching)
-void GOB_InitObjects()
+void GOB_InitObjects(void)
 {
     int i;
     struct GXObject* ob;
@@ -120,13 +120,13 @@ void GOB_Remove(struct GXObject* gob)
 }
 
 // 00419aa0
-void GOB_FreeAllObjects()
+void GOB_FreeAllObjects(void)
 {
     UNIMPLEMENTED;
 }
 
 // 00419b20
-void GOB_FreeRemovedObjects()
+void GOB_FreeRemovedObjects(void)
 {
     UNIMPLEMENTED;
 }

@@ -9,13 +9,13 @@ int32 COL_GetRemoteStatus(int32 level)
 }
 
 // 0041a600
-void COL_ClearStartDoor()
+void COL_ClearStartDoor(void)
 {
     UNIMPLEMENTED;
 }
 
 // 0041a610
-void COL_ClearStartDoors()
+void COL_ClearStartDoors(void)
 {
     UNIMPLEMENTED;
 }
@@ -27,13 +27,13 @@ void COL_CollectAnItem(int32 coltype)
 }
 
 // 0041a660
-void COL_ResetCollectibles()
+void COL_ResetCollectibles(void)
 {
     UNIMPLEMENTED;
 }
 
 // 0041a680
-int32 COL_RemoveOldVcrs()
+int32 COL_RemoveOldVcrs(void)
 {
     UNIMPLEMENTED;
     return 0;

@@ -4,7 +4,7 @@
 
 void* MEM_Alloc(size_t nb);
 void MEM_Free(void* p);
-void MEM_Init();
-void MEM_Deinit();
+void MEM_Init(void);
+void MEM_Deinit(void);
 
 #endif

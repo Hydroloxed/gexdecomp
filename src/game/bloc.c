@@ -19,7 +19,7 @@ static void BLOC_Loaded(void* dunno)
 }
 
 // 0040b460
-static void BLOC_BlockLoader()
+static void BLOC_BlockLoader(void)
 {
     UNIMPLEMENTED;
 }
@@ -32,13 +32,13 @@ static void** BLOC_InitTable(void** blktbl, char* mem, int blocks)
 }
 
 // 0040b6f0
-void BLOC_OpenBlockSupport()
+void BLOC_OpenBlockSupport(void)
 {
     UNIMPLEMENTED;
 }
 
 // 0040b830
-void BLOC_CloseBlockSupport()
+void BLOC_CloseBlockSupport(void)
 {
     UNIMPLEMENTED;
 }
@@ -56,7 +56,7 @@ void BLOC_LoadBlocks(struct CDirectory* dir, int diridx, void** blktbl, void** o
 }
 
 // 0040b940
-void BLOC_WaitForBlocksToLoad()
+void BLOC_WaitForBlocksToLoad(void)
 {
     UNIMPLEMENTED;
 }

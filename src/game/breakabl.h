@@ -7,7 +7,7 @@ struct GXObject;
 void BreakTile(int32 x, int32 y);
 void PlayerTryBreakStuff(int32 x, int32 y);
 
-void FUN_0041b3b0();
+void FUN_0041b3b0(void);
 
 void ob237Init(struct GXObject* gob, BOOL removed);
 void ob284Init(struct GXObject* gob, BOOL removed);
