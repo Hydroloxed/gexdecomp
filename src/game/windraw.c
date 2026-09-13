@@ -1,4 +1,5 @@
 #include "windraw.h"
+#include "mem.h"
 #include "platform.h"
 #include "unimplemented.h"
 #include <stdarg.h>
@@ -188,10 +189,10 @@ void TXT_LoadFont(struct FONTType* font, struct CDirectory* dir, int fileidx)
     UNIMPLEMENTED;
 }
 
-// 0043f7d0
+// 0043f7d0 https://decomp.me/scratch/FAmcs 100%
 void TXT_UnloadFont(struct FONTType* font)
 {
-    UNIMPLEMENTED;
+    MEM_Free(font->cels);
 }
 
 // 0043f7f0
