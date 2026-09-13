@@ -1,12 +1,40 @@
 #include "cld.h"
 #include "listapi.h"
+#include "mem.h"
 #include "platform.h"
 #include "unimplemented.h"
 
-// 0041ca10
+// 00463728 c
+struct ListType sFreeCollisionObjects;
+
+// 00463680 c
+struct ListType sCollisionObjectsToMove;
+
+// 00463698 90
+struct ListType sCollideObjectLists[12];
+
+// 0041ca10 https://decomp.me/scratch/JSX9g 100%
 void CLD_InitCollides(void)
 {
-    UNIMPLEMENTED;
+    int i;
+    struct CollideObject* mem;
+    struct CollideObject* ob;
+    struct ListType* lst;
+
+    LST_Init(&sFreeCollisionObjects);
+    LST_Init(&sCollisionObjectsToMove);
+
+    #define MAX_OBS 100
+    mem = ob = MEM_Alloc(MAX_OBS * sizeof(CollideObject));
+    i = MAX_OBS;
+    for(i = MAX_OBS; --i > -1; ob++)
+    {
+        LST_AddTail(&sFreeCollisionObjects, &ob->clo_node);
+    }
+    for(lst = sCollideObjectLists; lst <= sCollideObjectLists + 11; lst++)
+    {
+        LST_Init(lst);
+    }
 }
 
 // 0041ca70
