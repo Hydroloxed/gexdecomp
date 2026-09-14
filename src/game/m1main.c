@@ -1,6 +1,7 @@
 #include "m1main.h"
 #include "bloc.h"
 #include "cld.h"
+#include "levselct.h"
 #include "mem.h"
 #include "ob.h"
 #include "platform.h"
@@ -9,8 +10,17 @@
 #include "windraw.h"
 #include "winmain.h"
 
+// dat 00455c3c 4
+int gGameState;
+
+// dat 004a2a64 4
+int gLevel;
+
 // dat 004a2968 4
 uint8* sM1PlaybackRecordingInfo;
+
+// dat 004a2a80 4
+int M1_GameThreadCommand;
 
 // 00409880
 void LoadGx(void)
@@ -134,10 +144,46 @@ void M1_DoLevel(void)
     UNIMPLEMENTED;
 }
 
-// 0040af60
+// OG function contains a weird "xor %ebx,%ebx", even though ebx is never used
+// in the function...
+// 0040af60 https://decomp.me/scratch/Y1NCT 35.42%
 void M1_RunGameLoop(void)
 {
-    UNIMPLEMENTED;
+    int oldlevel;
+    unsigned done = 0;
+    while(!done)
+    {
+        oldlevel = gLevel;
+        if(M1_GameThreadCommand != 0) break;
+        switch(gGameState)
+        {
+        case 0:
+            DoLevelSelectScreen();
+            break;
+        case 1:
+            FUN_0040ab60();
+            break;
+        case 2:
+            FUN_0040abd0();
+            break;
+        case 4:
+            M1_DoLevel();
+            break;
+        case 5:
+            oldlevel = gLevel;
+            gLevel = 0x44; // GLUE6 REWARD
+            FUN_0040ab60();
+            gLevel = oldlevel;
+            // fallthrough
+        case 3:
+            gGameState = 1;
+            break;
+        default:
+            done = 1;
+            gLevel = oldlevel;
+        }
+    }
+    M1_EnsureOldMusicStopped(1);
 }
 
 // 0040b000 https://decomp.me/scratch/tCP1z 100%
