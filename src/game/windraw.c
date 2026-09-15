@@ -419,7 +419,7 @@ void CEL_DrawCelList(struct CD_CEL* cellist)
 }
 
 // 00445170
-BOOL FUN_00445170(void)
+BOOL FUN_00445170(uint32 param_1)
 {
     UNIMPLEMENTED;
     return 0;

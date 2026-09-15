@@ -97,7 +97,7 @@ static BOOL InitVRamAndDithering(void);
 BOOL FillRectRGB(struct Rect* param_1, uint8 r, uint8 g, uint8 b);
 void CEL_DrawCel(struct CD_CEL* cel);
 void CEL_DrawCelList(struct CD_CEL* cellist);
-BOOL FUN_00445170(void);
+BOOL FUN_00445170(uint32 param_1);
 uint32 FUN_00445180(uint32 param_1, uint32 param_2);
 uint32 FUN_004451a0(uint32 param_1, uint32 param_2, uint32 param_3, uint32 param_4);
 BOOL TransferImageToRect(struct Rect* param_1, uint16* param_2);
