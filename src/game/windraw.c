@@ -2,8 +2,15 @@
 #include "mem.h"
 #include "platform.h"
 #include "unimplemented.h"
+#include "winmain.h"
 #include <stdarg.h>
 #include <stdlib.h>
+
+// dat 0046a560 14
+struct AtlasRegion gMainAtlasRegion;
+
+// dat 0046a574 14
+struct AtlasRegion gSecondaryAtlasRegion;
 
 // 0043daf0
 void DRAW_Init(void)
@@ -117,10 +124,14 @@ void GFX_Init(void)
     UNIMPLEMENTED;
 }
 
-// 0043f000
+// 0043f000 https://decomp.me/scratch/Ar6Sp 100%
 void GFX_OpenGraphics(uint32 param_1)
 {
-    UNIMPLEMENTED;
+    FillRectRGB(&gMainAtlasRegion.rect,0,0,0);
+    FillRectRGB(&gSecondaryAtlasRegion.rect,0,0,0);
+    FUN_00445170(0);
+    CEL_SetInit(1);
+    TracePrintf_Debug("GFX_OpenGraphics\n");
 }
 
 // 0043f050
