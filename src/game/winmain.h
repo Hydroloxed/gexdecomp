@@ -8,9 +8,10 @@ struct CFileInfo;
 struct CDirectory
 {
     // Windows-specific
-    uint32 numFiles;
-    struct CFileInfo* files;
-    void* fileHandle;
+    uint32 cdir_numFiles; // 00
+    struct CFileInfo* cdir_fileInfo; // 04
+    void* cdir_fh; // 08
+    // 0C
 };
 
 extern struct CDirectory* gRootDir;
