@@ -13,6 +13,18 @@ struct Rect;
 struct RM_Map;
 struct RM_Screen;
 
+struct Rect
+{
+    int16 x, y, w, h;
+};
+
+struct AtlasRegion
+{
+    struct Rect rect;
+    int field1_0x8;
+    struct Rect field1_0xc;
+};
+
 typedef struct {
 	uint16 data[32];
 } FONTPLUT;
