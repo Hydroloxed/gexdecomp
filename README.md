@@ -12,6 +12,12 @@ The development workflow is essentially:
  - Paste the disassembly into [decomp.me](https://decomp.me)
  - Iterate on the disassembly until reaching (close to) 100%
 
+You can use `scripts/report.py` to get an overview of the number of functions
+that are matched (and which ones aren't):
+```bash
+python scripts/report.py
+```
+
 ### Disassembling a function
 
 We use [unassemblize](https://github.com/OmniBlade/unassemblize) to generate assemblable disassembly.
