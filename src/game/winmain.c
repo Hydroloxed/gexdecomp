@@ -6,7 +6,10 @@
 #include <stdlib.h>
 #include <windows.h>
 
+// dat 00455998 4
 struct CDirectory* gRootDir;
+
+// dat 47f030 c
 struct CDirectory gRootDirX;
 
 // 00401000
@@ -763,7 +766,7 @@ BOOL FILE_ReadWithCallback(/*CFile_fake*/ void* param_1, /*CFileIOReq*/ void* pa
 void* MEM_Alloc(size_t nb)
 {
     UNIMPLEMENTED;
-    return NULL;
+    return malloc(nb);
 }
 
 // 00409740
