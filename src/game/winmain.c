@@ -7,9 +7,12 @@
 #include <windows.h>
 
 // dat 00455998 4
-struct CDirectory* gRootDir;
+struct CDirectory* gRootDir = &gRootDirX;
 
-// dat 47f030 c
+// dat 0047f000 4
+uint8* gIDL;
+
+// dat 0047f030 c
 struct CDirectory gRootDirX;
 
 // 00401000
@@ -735,11 +738,19 @@ BOOL FILE_ReadMaybeFromIDL(/*CFile_fake*/ void* param_1, void* pData, uint32 siz
     return 0;
 }
 
-// 00409560
+// 00409560 https://decomp.me/scratch/RoFSC 100%
 BOOL IDL_Open(void)
 {
-    UNIMPLEMENTED;
-    return 0;
+    void* fh;
+    uint32 size;
+
+    gRootDir->cdir_numFiles = 0;
+    gRootDir->cdir_fh = (void*) 1;
+    fh = CDIO_FileOpen("IDL\\GEX000.IDL");
+    size = CDIO_FileSize(fh);
+    gIDL = MEM_Alloc(size);
+    CDIO_FileRead(fh, gIDL, size);
+    return 1;
 }
 
 // 004095c0
