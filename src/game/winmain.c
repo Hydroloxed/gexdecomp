@@ -9,11 +9,20 @@
 // dat 00455998 4
 struct CDirectory* gRootDir = &gRootDirX;
 
+// dat 0047ef70
+uint32 gAllocCount;
+
+// dat 0047ef80 80
+void* gAllocs[32];
+
 // dat 0047f000 4
 uint8* gIDL;
 
 // dat 0047f030 c
 struct CDirectory gRootDirX;
+
+// dat 00487d60 80
+char strMemoryError[128];
 
 // 00401000
 int32 DDRAW_GetDisplayMode(void)
@@ -773,11 +782,40 @@ BOOL FILE_ReadWithCallback(/*CFile_fake*/ void* param_1, /*CFileIOReq*/ void* pa
     return 0;
 }
 
-// 004096c0
+// 004096c0 https://decomp.me/scratch/kxTn8 100%
 void* MEM_Alloc(size_t nb)
 {
-    UNIMPLEMENTED;
-    return malloc(nb);
+    void* ptr;
+    int nextfree;
+
+    do
+    {
+        ptr = GlobalAlloc(0x40, nb);
+        if(ptr)
+        {
+            if(gAllocCount != 32)
+            {
+                gAllocCount++;
+
+                for(nextfree = 0; gAllocs[nextfree] != 0; nextfree++);
+
+                gAllocs[nextfree] = ptr;
+            }
+            else
+            {
+                OutputDebugStringA("MEM: Need more than 16 Allocs\n");
+                // TODO: Of course this should break on GCC too!
+                #ifdef _MSC_VER
+                __asm int 3;
+                #endif
+            }
+        }
+        else
+        {
+            WinShowError(1, strMemoryError);
+        }
+    } while(!ptr);
+    return ptr;
 }
 
 // 00409740
