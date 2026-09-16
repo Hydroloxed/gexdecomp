@@ -431,7 +431,7 @@ void RunTimer(void)
 }
 
 // 00404ba0
-uint32 INPUT_GetActiveKeys(void)
+uint32 INPUT_GetActiveKeys(uint32 param_1)
 {
     UNIMPLEMENTED;
     return 0;

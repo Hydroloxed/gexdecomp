@@ -82,7 +82,7 @@ void FUN_004048e0(void);
 void FUN_00404a20(void);
 void FUN_00404a80(void);
 void RunTimer(void);
-uint32 INPUT_GetActiveKeys(void);
+uint32 INPUT_GetActiveKeys(uint32 param_1);
 char* STRING_Load(uint32 param_1);
 // 00404e40
 void STRING_Init(void);
