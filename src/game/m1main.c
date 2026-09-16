@@ -20,7 +20,7 @@ int gLevel;
 uint8* sM1PlaybackRecordingInfo;
 
 // dat 004a2a80 4
-int M1_GameThreadCommand;
+volatile int32 M1_GameThreadCommand;
 
 // 00409880
 void LoadGx(void)
@@ -144,9 +144,7 @@ void M1_DoLevel(void)
     UNIMPLEMENTED;
 }
 
-// OG function contains a weird "xor %ebx,%ebx", even though ebx is never used
-// in the function...
-// 0040af60 https://decomp.me/scratch/Y1NCT 35.42%
+// 0040af60 https://decomp.me/scratch/Y1NCT 100%
 void M1_RunGameLoop(void)
 {
     int oldlevel;
