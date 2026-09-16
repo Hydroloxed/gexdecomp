@@ -1,6 +1,7 @@
 #include "m1main.h"
 #include "bloc.h"
 #include "cld.h"
+#include "gxinppad.h"
 #include "levselct.h"
 #include "mem.h"
 #include "ob.h"
@@ -9,9 +10,19 @@
 #include "unimplemented.h"
 #include "windraw.h"
 #include "winmain.h"
+#include <windows.h>
+
+// dat 00455c04
+int32 DAT_00455c04;
 
 // dat 00455c3c 4
 int gGameState;
+
+// dat 00487f88
+BOOL gIsPaused;
+
+// dat 004a026c
+BOOL gSecretLevelSelect;
 
 // dat 004a2a64 4
 int gLevel;
@@ -19,8 +30,17 @@ int gLevel;
 // dat 004a2968 4
 uint8* sM1PlaybackRecordingInfo;
 
+// dat 004a2970 4
+uint32 gMainState;
+
 // dat 004a2a80 4
 volatile int32 M1_GameThreadCommand;
+
+// dat 004a2a84 4
+BOOL M1_GameRunning;
+
+// dat 004a2a8c
+uint8 M1_IsLevelDone;
 
 // 00409880
 void LoadGx(void)
@@ -212,11 +232,95 @@ void M1_RunGame(void)
     MEM_Deinit();
 }
 
-// 0040b0a0
-BOOL M1_Main(int param_1)
+// 0040b0a0 https://decomp.me/scratch/yD6nI 100%
+BOOL M1_Main(BOOL skipIntros)
 {
-    UNIMPLEMENTED;
-    M1_RunGame(); // temporary
+    M1_GameRunning = 1;
+    GFX_InitDrawCells();
+    DRAW_Init();
+    GFX_Init();
+    gSecretLevelSelect = 0;
+    DAT_00455c04 = 0;
+    GXINP_InitPads();
+    if(skipIntros)
+    {
+        gMainState = 2;
+    }
+    while(M1_GameThreadCommand < 2)
+    {
+        if(M1_GameThreadCommand == 1)
+        {
+            M1_GameThreadCommand = 0;
+            gMainState = 2;
+        }
+        switch(gMainState)
+        {
+            case 0:
+            {
+                int done = 0;
+                FUN_00404410("AVI\\GEX000.AVI", &done);
+                while(!done && !M1_GameThreadCommand)
+                {
+                    Sleep(0);
+                    if(INPUT_GetActiveKeys(0) && gIsPaused)
+                    {
+                        CloseVideoWindow();
+                    }
+                }
+                gMainState = 1;
+                break;
+            }
+            case 1:
+            {
+                if(!M1_IsLevelDone)
+                {
+                    int done = 0;
+                    FUN_00404410("AVI\\GEX001.AVI", &done);
+                    while(!done && !M1_GameThreadCommand)
+                    {
+                        Sleep(0);
+                        if(INPUT_GetActiveKeys(0) && gIsPaused)
+                        {
+                            CloseVideoWindow();
+                        }
+                    }
+                }
+                M1_IsLevelDone = 0;
+                gMainState = 2;
+                break;
+            }
+            case 2:
+                gLevel = 0x3f;
+                gGameState = 1;
+                M1_RunGame();
+                gLevel = 0x3f;
+                gGameState = 1;
+                break;
+            case 3:
+                gMainState = 2;
+            break;
+            case 5:
+            {
+                int done = 0;
+                FUN_00404410("AVI\\GEX002.AVI", &done);
+                while(!done && !M1_GameThreadCommand)
+                {
+                    Sleep(100);
+                    if(INPUT_GetActiveKeys(0) && gIsPaused)
+                    {
+                        CloseVideoWindow();
+                    }
+                }
+                gMainState = 6;
+                break;
+            }
+            case 6:
+                gGameState = 4;
+                M1_RunGame();
+            break;
+        }
+    }
+    M1_GameRunning = 0;
     return 0;
 }
 
