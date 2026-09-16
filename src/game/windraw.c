@@ -19,6 +19,9 @@ uint32 gFadeCurGreen;
 // dat 0046a648 4
 uint32 gFadeCurRed;
 
+// dat 004a295c 4
+BOOL DAT_004a295c;
+
 // dat 004a2af8 1
 uint8 gFadeImmediateB;
 // dat 004a2af9 1
@@ -180,10 +183,15 @@ void GFX_DoFlush(BOOL param_1)
     UNIMPLEMENTED;
 }
 
-// 0043f2f0
+// 0043f2f0 https://decomp.me/scratch/OFNxC 100%
 void GFX_Frame(void)
 {
-    UNIMPLEMENTED;
+    if(!DAT_004a295c)
+    {
+        FUN_00405450();
+        GFX_Flush();
+        DAT_004a295c = 1;
+    }
 }
 
 // 0043f310
