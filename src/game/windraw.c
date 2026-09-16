@@ -12,6 +12,22 @@ struct AtlasRegion gMainAtlasRegion;
 // dat 0046a574 14
 struct AtlasRegion gSecondaryAtlasRegion;
 
+// dat 0046a640 4
+uint32 gFadeCurBlue;
+// dat 0046a644 4
+uint32 gFadeCurGreen;
+// dat 0046a648 4
+uint32 gFadeCurRed;
+
+// dat 004a2af8 1
+uint8 gFadeImmediateB;
+// dat 004a2af9 1
+uint8 gFadeImmediateG;
+// dat 004a2afa 1
+uint8 gFadeImmediateR;
+// dat 004a2afc 4
+uint32 gFadeImmediateRGB;
+
 // 0043daf0
 void DRAW_Init(void)
 {
@@ -176,10 +192,16 @@ void GFX_DoFade(void)
     UNIMPLEMENTED;
 }
 
-// 0043f450
+// 0043f450 https://decomp.me/scratch/s7v4m 100%
 void GFX_ResetFade(void)
 {
-    UNIMPLEMENTED;
+    gFadeImmediateRGB = 0x808080;
+    gFadeImmediateB = 0x80;
+    gFadeImmediateG = 0x80;
+    gFadeImmediateR = 0x80;
+    gFadeCurBlue = 0x800000;
+    gFadeCurGreen = 0x800000;
+    gFadeCurRed = 0x800000;
 }
 
 // 0043f490
