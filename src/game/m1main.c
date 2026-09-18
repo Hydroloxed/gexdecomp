@@ -24,6 +24,15 @@ int32 DAT_00455c40 = -1;
 // dat 00456adc 4
 int32 gStartDoorID;
 
+// dat 004626f8 4
+void* sGexGlobOffset;
+
+// dat 00462700 4
+BOOL sGexNeedsResolving;
+
+// dat 00462704 4
+void** sGexBlks;
+
 // dat 00487f88
 BOOL gIsPaused;
 
@@ -51,10 +60,16 @@ uint8 M1_IsLevelDone;
 // dat 004a2ad4 4
 struct GXLoadObject* gGexGlob;
 
-// 00409880
+// 00409880 https://decomp.me/scratch/y0K5J 100%
 void LoadGx(void)
 {
-    UNIMPLEMENTED;
+    if(!gGexGlob)
+    {
+        DRAW_CacheClear(1);
+        TracePrintf_Debug("Loading GX Data\n");
+        BLOC_LoadBlocks(gRootDir, 2, &sGexBlks, &sGexGlobOffset);
+        sGexNeedsResolving = 1;
+    }
 }
 
 // 004098d0
