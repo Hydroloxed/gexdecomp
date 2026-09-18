@@ -50,7 +50,7 @@ void BLOC_FreeBlocks(void** blktbl)
 }
 
 // 0040b8c0
-void BLOC_LoadBlocks(struct CDirectory* dir, int diridx, void** blktbl, void** outptr)
+void BLOC_LoadBlocks(struct CDirectory* dir, int diridx, void*** blktbl, void** outptr)
 {
     UNIMPLEMENTED;
 }
