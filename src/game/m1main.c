@@ -18,6 +18,12 @@ int32 DAT_00455c04;
 // dat 00455c3c 4
 int gGameState;
 
+// dat 00455c40 4
+int32 DAT_00455c40 = -1;
+
+// dat 00456adc 4
+int32 gStartDoorID;
+
 // dat 00487f88
 BOOL gIsPaused;
 
@@ -39,8 +45,11 @@ volatile int32 M1_GameThreadCommand;
 // dat 004a2a84 4
 BOOL M1_GameRunning;
 
-// dat 004a2a8c
+// dat 004a2a8c 1
 uint8 M1_IsLevelDone;
+
+// dat 004a2ad4 4
+struct GXLoadObject* gGexGlob;
 
 // 00409880
 void LoadGx(void)
@@ -146,10 +155,27 @@ void FUN_0040ab00(void)
     UNIMPLEMENTED;
 }
 
-// 0040ab60
+// 0040ab60 https://decomp.me/scratch/PRKoS 99% (ordering of gLevel and DAT_00455c40 loads are reversed)
 void FUN_0040ab60(void)
 {
-    UNIMPLEMENTED;
+    if(!gGexGlob)
+    {
+        GFX_Frame();
+        LoadGx();
+        while(!ResolveGx()) {};
+    }
+    // Ordering problems here with global loading, should be reversed...
+    if(gStartDoorID <= 0 || gLevel != DAT_00455c40)
+    {
+        FUN_0040a990();
+    }
+    M1_EnsureLevelLoaded();
+    FUN_0040ab00();
+    // Same here
+    if(gStartDoorID <= 0 || gLevel != DAT_00455c40)
+    {
+        M1_FreeLevel();
+    }
 }
 
 // 0040abd0
