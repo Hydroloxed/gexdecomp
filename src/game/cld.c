@@ -4,13 +4,13 @@
 #include "platform.h"
 #include "unimplemented.h"
 
-// 00463728 c
+// dat 00463728 c
 struct ListType sFreeCollisionObjects;
 
-// 00463680 c
+// dat 00463680 c
 struct ListType sCollisionObjectsToMove;
 
-// 00463698 90
+// dat 00463698 90
 struct ListType sCollideObjectLists[12];
 
 // 0041ca10 https://decomp.me/scratch/JSX9g 100%
