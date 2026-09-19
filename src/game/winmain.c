@@ -661,6 +661,8 @@ int32 InputDialogProc(/*HWND*/ void* param_1, /*WINDOW_MESSAGE*/ uint32 param_2,
 // 00408418
 BOOL FUN_00408418(void)
 {
+    // WTF is going here??? It looks like there are several more functions hidden inside this function!
+    // TODO: Investigate!
     UNIMPLEMENTED;
     return 0;
 }
