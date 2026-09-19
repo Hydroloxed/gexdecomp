@@ -3,8 +3,8 @@ import re
 
 c_files = glob.glob("src/**/*.c", recursive=True)
 
-FUN_PATTERN = r"// ([0-9a-f]{8})$"
-FUN_WITH_MATCH_PATTERN = r"// ([0-9a-f]{8}) https://decomp.me/scratch/([a-zA-Z0-9]+) ([0-9.]+)%$"
+FUN_PATTERN = r"^// ([0-9a-f]{8})$"
+FUN_WITH_MATCH_PATTERN = r"^// ([0-9a-f]{8}) https://decomp.me/scratch/([a-zA-Z0-9]+) ([0-9.]+)%"
 
 funs = []
 
