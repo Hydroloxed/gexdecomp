@@ -72,11 +72,21 @@ void LoadGx(void)
     }
 }
 
-// 004098d0
+// 004098d0 https://decomp.me/scratch/QcNn4 100%
 BOOL ResolveGx(void)
 {
-    UNIMPLEMENTED;
-    return 0;
+    if(!gGexGlob && sGexNeedsResolving)
+    {
+        if(!sGexGlobOffset)
+        {
+            return 0;
+        }
+        sGexNeedsResolving = 0;
+        TracePrintf_Debug("GOB_ResolveLoadObject()\n");
+        gGexGlob = GOB_ResolveLoadObject(sGexBlks, *(void**) sGexGlobOffset);
+        TracePrintf_Debug("freeblocks = %ld\n", gNumFreeBlocks);
+    }
+    return 1;
 }
 
 // 00409940

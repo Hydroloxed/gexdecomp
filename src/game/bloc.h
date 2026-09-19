@@ -1,5 +1,8 @@
 #ifndef BLOC_H
 #define BLOC_H
+#include "platform.h"
+
+extern uint32 gNumFreeBlocks;
 
 struct CDirectory;
 

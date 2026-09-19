@@ -2,6 +2,9 @@
 #include "unimplemented.h"
 #include <stdlib.h>
 
+// dat 004a2924 4
+uint32 gNumFreeBlocks;
+
 // 0040b390 https://decomp.me/scratch/9sSYN 100%
 void* BLOC_ResolvePtr(void** blktbl, void* ptr)
 {
