@@ -727,11 +727,21 @@ void CDIO_FileRead(void* param_1, void* param_2, uint32 param_3)
     UNIMPLEMENTED;
 }
 
-// 004092a0
-uint32 CDIO_FileSize(void* param_1)
+// 004092a0 https://decomp.me/scratch/ShEDW 99% (registers are off, two loads are reversed)
+uint32 CDIO_FileSize(void* fh)
 {
-    UNIMPLEMENTED;
-    return 0;
+    while(1)
+    {
+        uint32 size = GetFileSize((HANDLE) fh, NULL);
+        if(size != INVALID_FILE_SIZE)
+        {
+            return size;
+        }
+        else
+        {
+            WinShowError(1, strIoError);
+        }
+     }
 }
 
 // 004092d0
