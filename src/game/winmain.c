@@ -18,8 +18,17 @@ void* gAllocs[32];
 // dat 0047f000 4
 uint8* gIDL;
 
+// dat 0047f004 4
+uint32 sFileHandleCount;
+
+// dat 0047f010 20
+HANDLE sFileHandles[8];
+
 // dat 0047f030 c
 struct CDirectory gRootDirX;
+
+// dat 00487a10 80
+char strIoError[128];
 
 // dat 00487d60 80
 char strMemoryError[128];
@@ -675,11 +684,35 @@ void SettingsSetFromRegistry(void)
     UNIMPLEMENTED;
 }
 
-// 00409170
-void* CDIO_FileOpen(const char* param_1)
+// 00409170 https://decomp.me/scratch/xQq6A 100%
+void* CDIO_FileOpen(const char* name)
 {
-    UNIMPLEMENTED;
-    return NULL;
+    if(sFileHandleCount != 8)
+    {
+        HANDLE fh;
+        int i = 0;
+
+        do
+        {
+            fh = CreateFileA(name, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+            if(fh == INVALID_HANDLE_VALUE)
+            {
+                WinShowError(1, strIoError);
+            }
+        } while(fh == INVALID_HANDLE_VALUE);
+        sFileHandleCount++;
+        for(i = 0; sFileHandles[i]; i++);
+        sFileHandles[i] = fh;
+        return fh;
+    }
+    else
+    {
+        
+        OutputDebugStringA("CDIO: Out of FileHandles\n");
+        #ifdef _MSC_VER
+        __asm int 3;
+        #endif
+    }
 }
 
 // 00409200
