@@ -723,10 +723,14 @@ void CDIO_FileClose(void* param_1)
     UNIMPLEMENTED;
 }
 
-// 00409250
-void CDIO_FileRead(void* param_1, void* param_2, uint32 param_3)
+// 00409250 https://decomp.me/scratch/Wikpu 100%
+void CDIO_FileRead(void* fh, void* dest, uint32 size)
 {
-    UNIMPLEMENTED;
+    DWORD bytesRead;
+    while(ReadFile((HANDLE) fh, dest, size, &bytesRead, NULL) == 0)
+    {
+        WinShowError(1, strIoError);
+    }
 }
 
 // 004092a0 https://decomp.me/scratch/ShEDW 99% (registers are off, two loads are reversed)
