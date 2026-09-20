@@ -3,16 +3,33 @@
 #include "platform.h"
 #include <stddef.h>
 
-struct CFileInfo;
+typedef struct CFileInfo
+{
+    uint32 cfi_fileHash; // 00
+	uint32 cfi_fileLen; // 04
+	uint32 cfi_filePos; // 08
+	uint32 cfi_fileChecksum; // 0C
+	// 10
+} CFileInfo;
 
-struct CDirectory
+typedef struct CDirectory
 {
     // Windows-specific
     uint32 cdir_numFiles; // 00
     struct CFileInfo* cdir_fileInfo; // 04
     void* cdir_fh; // 08
     // 0C
-};
+} CDirectory;
+
+typedef struct CFile
+{
+    // Windows-specific
+    uint32 cf_size; // 00
+    struct CDirectory* cf_dir; // 04
+    void* cf_fh; // 08
+    uint32 cf_curPos; // 0C
+    // 10
+} CFile;
 
 extern struct CDirectory* gRootDir;
 extern struct CDirectory gRootDirX;
