@@ -31,6 +31,9 @@ uint8 gFadeImmediateR;
 // dat 004a2afc 4
 uint32 gFadeImmediateRGB;
 
+// dat 004a2f50 1
+uint8 gCelIsInit;
+
 // 0043daf0
 void DRAW_Init(void)
 {
@@ -514,10 +517,10 @@ void FUN_00445280(/*AtlasRegion*/ void* param_1, uint16 x, uint16 y, uint16 w, u
     return NULL;
 }
 
-// 00445340
-void CEL_SetInit(uint8 param_1)
+// 00445340 https://decomp.me/scratch/kOyMG 100%
+void CEL_SetInit(uint8 isInit)
 {
-    UNIMPLEMENTED;
+    gCelIsInit = isInit;
 }
 
 // 00445350
