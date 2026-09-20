@@ -50,13 +50,13 @@ int PasswordDecodeGetBits(char* param_1, uint32 first, uint32 num)
 }
 
 // 00429850
-void FUN_00429850(char* param_1, uint8* param_2, int param_3)
+void PasswordEncrypt(char* param_1, uint8* param_2, int param_3)
 {
     UNIMPLEMENTED;
 }
 
 // 004298c0
-int32 FUN_004298c0(char* param_1, char* param_2)
+int32 PasswordDecrypt(char* param_1, char* param_2)
 {
     UNIMPLEMENTED;
     return 0;
